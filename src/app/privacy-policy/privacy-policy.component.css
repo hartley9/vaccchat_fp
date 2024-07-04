@@ -1,0 +1,12 @@
+.textContainer {
+  padding-top: 2.5em;
+  padding-bottom: 0.5em;
+}
+
+.centering {
+  justify-content: space-evenly;
+  min-Width: 80rem;
+  display: flex;
+  align-items: center;
+}
+

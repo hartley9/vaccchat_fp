@@ -1,0 +1,28 @@
+<div class="iframeDiv">
+  <div id="loadingDiv">
+    <div class="inProgressSVG">
+      <h1>Loading</h1>
+      <br />
+      <svg class="circular-loader" viewBox="50 50 100 100">
+        <circle
+          class="loader-path"
+          cx="100"
+          cy="100"
+          r="40"
+          fill="none"
+          stroke="black"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </div>
+  <div>
+    <iframe
+      (load)="isLoading = false"
+      [class.d-none]="isLoading"
+      class="iframeDiv e2e-iframe-trusted-src"
+      [src]="urlSafe"
+      allow="camera *;microphone *"
+    ></iframe>
+  </div>
+</div>

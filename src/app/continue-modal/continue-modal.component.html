@@ -1,0 +1,51 @@
+<div class="modalContainer">
+  <h2 mat-dialog-title class="">Terms of use</h2>
+  <mat-dialog-content class="mat-typography">
+    <p>
+      Access to the camera is required for the face filters to work.<br />
+      <b>No data or images are stored in this app.</b> <br /><br />
+      Click confirm to agree.
+    </p>
+
+    <span class="subtitle-2"
+      ><u
+        >By clicking accept you are agreeing to the following terms of use</u
+      ></span
+    >
+    <ul>
+      <li>This is designed for your personal use only</li>
+      <li>
+        To see the filters in action, you'll need to move your face to the left
+      </li>
+      <li>Fit your face into the dotted line</li>
+      <li>Click the camera icon to take an image.</li>
+      <li>If you want to save and share the image, download to your device</li>
+    </ul>
+
+    <!--  <span class="subtitle-2"><u>More Information</u></span>
+    <ul>
+      <li>
+        The NHS provide
+        <a href="www.nhs.org.uk">resources</a> where you can find out more
+        details
+      </li>
+      <li>You can read our <a href="/privacy-policy">privacy policy</a></li>
+      <li>
+        Or find answers to common questions in our <a href="/faqs">FAQs</a>
+      </li>
+    </ul> -->
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <div class="modalButtonDiv">
+      <button class="cancel-button" mat-dialog-close>Cancel</button>
+      <button
+        class="agree-button"
+        routerLink="/face-filter"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+      >
+        Confirm
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

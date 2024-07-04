@@ -1,0 +1,293 @@
+.container {
+  justify-items: center;
+  /*  max-height: 100vh; */
+  background-image: inherit;
+}
+
+.cameraOptionsDiv {
+  background-color: inherit;
+  justify-content: space-evenly;
+  display: flex;
+  height: 3em;
+  padding-top: 2em;
+}
+
+.toggleButtonSize {
+  /* transform: scale(1.5); */
+  width: 100%;
+}
+
+.iconsSize {
+  transform: scale(3);
+}
+
+.buttonWidth {
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.faceFilterToggle {
+  width: 100%;
+  background-color: inherit;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  height: 5em;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.cameraDiv {
+  align-items: center;
+  background-color: inherit;
+  /* width: 75%; */
+  height: 65vh;
+  margin: auto;
+}
+
+.webcamDiv {
+  z-index: 0;
+  background-color: black;
+  height: 65vh;
+  margin: auto;
+}
+
+.takenImageCanvas {
+  background-color: black;
+}
+
+.iframeDiv {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: inherit;
+}
+
+/* // NOT USED */
+.watermarkDiv {
+  width: 100%;
+  z-index: 1000;
+  align-content: center;
+  text-align: center;
+  font-size: 100%;
+  position: absolute;
+  bottom: 20%;
+  font-weight: bold;
+}
+
+.lowerCameraControls {
+  display: flex;
+}
+
+#pictureButtons {
+  padding: 3em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.instructionText {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+}
+
+.mat-card {
+}
+
+.verificationText {
+  text-align: center;
+  align-self: center;
+  width: 100%;
+  color: black;
+  /* position: absolute; */
+  position: relative;
+  z-index: 1;
+  font-size: 1.5em;
+
+  /* Translate the text to just below the live video*/
+}
+
+.cardBody {
+  padding: 0.5em;
+  font-size: 0.75em;
+}
+
+.cardTitle {
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  display: flex;
+}
+.passedSVG {
+  transform: scale(2);
+}
+
+.failedSVG {
+  transform: scale(2);
+}
+
+.moreInfoSVG {
+  transform: scale(2em);
+  animation: infoFlash 5s infinite;
+  color: #8c8b89;
+}
+
+@keyframes infoFlash {
+  0% {
+    /*  background-color: transparent; */
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(4);
+  }
+  75% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.profile-main-loader {
+  left: 50% !important;
+  margin-left: -100px;
+  position: fixed !important;
+  top: 50% !important;
+  margin-top: -100px;
+  width: 45px;
+  z-index: 9000 !important;
+}
+
+.profile-main-loader .loader {
+  position: relative;
+  margin: 0px auto;
+  width: 200px;
+  height: 200px;
+}
+.profile-main-loader .loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.circular-loader {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+  height: 2em;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  width: 2em;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
+.loader-path {
+  stroke-dasharray: 150, 200;
+  stroke-dashoffset: -10;
+  -webkit-animation:
+    dash 1.5s ease-in-out infinite,
+    color 6s ease-in-out infinite;
+  animation:
+    dash 1.5s ease-in-out infinite,
+    color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+@-webkit-keyframes color {
+  0% {
+    stroke: black;
+  }
+  40% {
+    stroke: black;
+  }
+  66% {
+    stroke: black;
+  }
+  80%,
+  90% {
+    stroke: black;
+  }
+}
+@keyframes color {
+  0% {
+    stroke: black;
+  }
+  40% {
+    stroke: black;
+  }
+  66% {
+    stroke: black;
+  }
+  80%,
+  90% {
+    stroke: black;
+  }
+}
+
+.watermarkTextDiv {
+  background-color: inherit;
+  display: inline-block;
+}
+
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+
+.moreInfoDiv {
+  width: 4em;
+  height: 4em;
+  padding: 4em;
+  z-index: 1000;
+  color: #0134ff;
+  display: flex;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.moreInfoDivWrapper {
+}

@@ -1,0 +1,36 @@
+<div class="modalContainer">
+  <h2 mat-dialog-title class="">Downloading your picture</h2>
+  <mat-dialog-content class="mat-typography">
+    <!--  <p>
+      Access to the camera is required for the face filters to work.<br />
+      <b>No data or images are stored in this app.</b> <br /><br />
+      Click confirm to agree.
+    </p> -->
+
+    <p>
+      Before downloading your image, take care to think what you
+      <br />
+      You can find more information about how to share images of yourself online
+      safely here:
+      <a
+        href="https://www.bbc.com/ownit/its-personal/where-are-your-photos-going"
+        >Link</a
+      >.
+    </p>
+
+    <span class="subtitle-2"><u></u></span>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <div class="modalButtonDiv">
+      <button class="cancel-button" mat-dialog-close>Cancel</button>
+      <button
+        class="agree-button"
+        onClick="Download"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+      >
+        Confirm and Download
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

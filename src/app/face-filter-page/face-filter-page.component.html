@@ -1,0 +1,203 @@
+<div class="container">
+  <div
+    #mainCamContainer
+    className="cameraDiv"
+    class="cameraDiv"
+    (window:resize)="onResize($event)"
+  >
+    <div class="faceFilterToggle">
+      <mat-button-toggle-group
+        #group="matButtonToggleGroup"
+        class="toggleButtonSize"
+      >
+        <mat-button-toggle
+          (click)="setFilterMeasles()"
+          class="buttonWidth"
+          value="measles"
+          >Measles</mat-button-toggle
+        >
+        <mat-button-toggle
+          (click)="setFilterMumps()"
+          class="buttonWidth"
+          value="mumps"
+          >Mumps</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+    </div>
+
+    <div #imageArea>
+      <div *ngIf="isLoading">
+        <h1>Loading</h1>
+        <br />
+        <svg class="circular-loader" viewBox="50 50 100 100">
+          <circle
+            class="loader-path"
+            cx="100"
+            cy="100"
+            r="40"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+      <div class="webcamDiv" [hidden]="isPictureTaken">
+        <!--  <webcam
+        [width]="cameraWidth"
+        [height]="cameraHeight"
+        (initError)="handleInitError($event)"
+        [trigger]="triggerObservable"
+        (imageCapture)="handleImage($event)"
+        *ngIf="!isPictureTaken"
+      ></webcam> -->
+
+        <iframe
+          allowtransparency="true"
+          style="background: inherit"
+          (load)="isLoading = false"
+          [class.d-none]="isLoading"
+          #filterIframe
+          class="iframeDiv e2e-iframe-trusted-src"
+          [src]="activeURL"
+          allow="camera *;microphone *;"
+          scrolling="no"
+        ></iframe>
+        <!--   <iframe *ngIf="!isMeasles" class="iframeDiv e2e-iframe-trusted-src" [src]="mumpsSafeURL" allow="camera *;microphone *" scrolling="no"></iframe> -->
+      </div>
+      <div class="takenImageDiv" *ngIf="isPictureTaken">
+        <img
+          #takenImage
+          [width]="cameraWidth"
+          [height]="cameraHeight"
+          [src]="imgSrc"
+        />
+      </div>
+
+      <div
+        matTooltip="Vaccine info"
+        matTooltipPosition="left"
+        id="MoreInfoDiv"
+        class="moreInfoDiv"
+      >
+        <a
+          href="https://www.lancashireandsouthcumbria.icb.nhs.uk/measles/help-spread-word?utm_source=newsletter&utm_medium=email&utm_term=https%3A%2F%2Fwww.lancashireandsouthcumbria.icb.nhs.uk%2Fmeasles%2Fhelp-spread-word&utm_content&utm_campaign=Lancashire%20Place-Based%20Newsletter%20-%20Edition%209"
+          mat-button
+          class="moreInfoButton"
+        >
+          <mat-icon mat-icon-button class="moreInfoSVG">info</mat-icon>
+        </a>
+      </div>
+    </div>
+
+    <div class="lowerCameraControlsContainer">
+      <div id="matCardContainer" [hidden]="faceVerificationStatus === 'passed'">
+        <mat-card class="verificationText">
+          <mat-card-header>
+            <mat-card-title class="cardTitle"
+              ><i><b>Face Verification</b></i></mat-card-title
+            >
+          </mat-card-header>
+          <mat-card-content class="cardBody">
+            <span class="">
+              <div
+                [hidden]="!(faceVerificationStatus === 'inProgress')"
+                class="instructinoAnim"
+              >
+                <div class="inProgressText">
+                  <span>Slowly turn your face to the left and right</span>
+                  <br />
+                  <b>Status: </b>Analysing...
+                </div>
+
+                <div class="inProgressSVG">
+                  <svg class="circular-loader" viewBox="25 25 50 50">
+                    <circle
+                      class="loader-path"
+                      cx="50"
+                      cy="50"
+                      r="20"
+                      fill="none"
+                      stroke="black"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div
+                [hidden]="!(faceVerificationStatus === 'passed')"
+                class="instructinoAnim"
+              >
+                <div class="passedText"><b>Status: </b>Passed</div>
+                <br />
+                <div class="passedSVG">
+                  <mat-icon>check_circle</mat-icon>
+                </div>
+              </div>
+
+              <div
+                [hidden]="!(faceVerificationStatus === 'failed')"
+                class="instructinoAnim"
+              >
+                <div class="failedText">
+                  <b>Status: </b> failed. Please reload this page to try again.
+                </div>
+                <br />
+                <div class="failedSVG">
+                  <mat-icon>close </mat-icon>
+                </div>
+              </div>
+            </span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- TAKE PICTURE BUTTONS -->
+      <div id="pictureButtons">
+        <button
+          [hidden]="!(faceVerificationStatus === 'passed')"
+          mat-icon-button
+          class="iconsSize"
+          (click)="takeImage()"
+          title="Take Picture"
+          *ngIf="!isPictureTaken"
+        >
+          <mat-icon>camera_enhance</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          class="iconsSize"
+          *ngIf="isPictureTaken"
+          title="Delete Image"
+          (click)="handleImageDelete()"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="openDialog()"
+          class="iconsSize"
+          *ngIf="isPictureTaken"
+          title="Share Image"
+        >
+          <!-- <mat-icon>share</mat-icon> -->
+          <!-- [matMenuTriggerFor]="menu" -->
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
+        <!--   <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDialog()">Download</button>
+        <button mat-menu-item (click)="handleImageShare()">Share</button>
+      </mat-menu> -->
+      </div>
+
+      <div #download hidden>
+        <img #canvas />
+        <a #downloadLink></a>
+      </div>
+
+      <!-- <app-camera-options></app-camera-options> -->
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

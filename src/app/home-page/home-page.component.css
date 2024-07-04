@@ -1,0 +1,133 @@
+.display-1 {
+  font-size: 3.3em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+section {
+  z-index: 100;
+  height: 100vh;
+  padding: 0 clamp(4rem, 12vw, 20rem);
+  display: grid;
+  place-content: center;
+  /* background-color: inherit;
+  background: inherit; */
+
+  --x: 0;
+  --y: 0;
+  background-color: white;
+  opacity: 1;
+
+  p {
+    font-size: clamp(3rem, 5vw, 8rem);
+
+    font-weight: bold;
+  }
+
+  &:nth-of-type(1) {
+    background: inherit;
+    background-color: inherit;
+  }
+
+  &:nth-of-type(2) {
+    background: inherit;
+    background-color: inherit;
+  }
+
+  &:nth-of-type(3) {
+    background: inherit;
+    background-color: inherit;
+  }
+
+  &:nth-of-type(4) {
+    /* height: 15vh; */
+    background: inherit;
+    background-color: inherit;
+  }
+}
+
+.textContainer {
+  padding-top: 1em;
+  padding-bottom: 0 em;
+}
+
+.lineContainer {
+  padding: 1em;
+}
+
+.textLine1 {
+  text-align: left;
+}
+
+.textLine2 {
+  text-align: right;
+}
+
+.textLine3 {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  /* For mobile phones: */
+  .display-1 {
+    font-size: 2em;
+  }
+}
+
+.centering {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+}
+
+.buttonDiv {
+  justify-items: center;
+}
+
+.halfHalf {
+  display: inline-block;
+}
+
+.measlesHalfHalf {
+}
+
+.measlesImageContainer {
+  left: 25%;
+  position: relative;
+}
+
+.mumpsImageContainer {
+  left: 28.5%;
+  position: relative;
+}
+
+.filterImage {
+  display: inline-block;
+  padding: 2em;
+  width: 18.5%;
+  min-width: 3em;
+}
+
+.images {
+  display: flex;
+  justify-items: space-between;
+  padding: 3em;
+}
+
+.title_center {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.continue_button {
+  width: 40em;
+  height: 80em;
+  size: 80em;
+  padding: 12px 70px;
+}
+
+.continue_button {
+  width: 40em;
+  height: 80em;
+}

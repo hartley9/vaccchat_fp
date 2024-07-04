@@ -1,0 +1,9 @@
+.agree-button:hover {
+  color: black;
+  background-color: white;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+}

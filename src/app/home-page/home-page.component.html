@@ -1,0 +1,35 @@
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<div className="container">
+  <div className="passwordDiv"></div>
+
+  <div id="gsap_container">
+    <section [ngStyle]="gradientStyle">
+      <p #txtBox1 id="txtBox1" class="">Welcome to VaccChat</p>
+    </section>
+    <section [ngStyle]="gradientStyle">
+      <p #txtBox1 id="txtBox2" class="reveal-type">
+        Do you know which vaccinations you've had?
+      </p>
+    </section>
+    <section [ngStyle]="gradientStyle">
+      <p #txtBox1 id="txtBox3" class="reveal-type">
+        You can choose to see what either measles or mumps would look like.
+      </p>
+    </section>
+    <section [ngStyle]="gradientStyle">
+      <p #txtBox1 id="txtBox4" class="reveal-type">
+        Using your camera, see the symptoms in action.
+      </p>
+    </section>
+    <section [ngStyle]="gradientStyle">
+      <button
+        class="continue-button"
+        (click)="openContinueDialog()"
+        routerLink="face-filter"
+        routerLinkActive="active"
+      >
+        Try it out!
+      </button>
+    </section>
+  </div>
+</div>

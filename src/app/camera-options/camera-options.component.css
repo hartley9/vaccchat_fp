@@ -1,0 +1,16 @@
+.cameraOptionsDiv {
+  background-color: white;
+  justify-content: space-evenly;
+  display: flex;
+  height: 3em;
+  padding-top: 2em;
+  opacity: 0;
+}
+
+.toggleButtonSize {
+  transform: scale(1.5);
+}
+
+.iconsSize {
+  transform: scale(3);
+}

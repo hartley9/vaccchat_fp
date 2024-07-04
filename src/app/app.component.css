@@ -1,0 +1,120 @@
+body {
+  /* overflow-y: scroll; */
+}
+
+.backgroundColor {
+  position: fixed;
+  background: white;
+  opacity: 1;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  /* overflow-y: scroll; */
+}
+
+.backgroundColor span {
+  position: relative;
+  height: 48vh;
+}
+
+.backgroundColor:before {
+  --size: 1000;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #ede208, transparent);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.4s ease,
+    height 0.4s ease;
+}
+
+.mouse-cursor-gradient-tracking:hover:before {
+  --size: 200px;
+}
+
+.root-container {
+  padding: 0 1em;
+
+  margin: 0 auto;
+  height: 32vh;
+}
+
+.toolBarTitle {
+  justify-content: left;
+}
+
+.toolBarButtons {
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.titleDiv {
+  position: -webkit-sticky;
+  background-color: #1e2761;
+  text-align: center;
+  position: sticky;
+}
+
+.title {
+  position: -webkit-sticky;
+  cursor: pointer;
+  font-size: 4em;
+  padding: 0.5em;
+  text-align: center;
+  font-style: italic;
+  color: white;
+  position: sticky;
+}
+
+body {
+  --x: 0;
+  --y: 0;
+  background-color: white;
+  opacity: 1;
+
+  /*  background-image: radial-gradient(
+    circle farthest-side at var(--x) var(--y),
+    #62b2c4,
+    #a1d6e2,
+    white 10%
+  ); */
+}
+
+.toolbarSpacer {
+  flex: 1 1 auto;
+}
+
+.custom-footer {
+  background-color: lightgrey;
+  min-height: 25vh;
+}
+
+.footer-content {
+  padding: 3em;
+  padding-left: 6em;
+}
+
+ul,
+li {
+  margin-bottom: 1em;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.idLine {
+  justify-content: center;
+  text-align: center;
+}
