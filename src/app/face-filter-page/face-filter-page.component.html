@@ -51,17 +51,19 @@
         *ngIf="!isPictureTaken"
       ></webcam> -->
 
-                <iframe
-                    allowtransparency="true"
-                    style="background: inherit"
-                    (load)="isLoading = false"
-                    [class.d-none]="isLoading"
-                    #filterIframe
-                    class="iframeDiv e2e-iframe-trusted-src"
-                    [src]="activeURL"
-                    allow="camera *;microphone *;"
-                    scrolling="no"
-                ></iframe>
+           <iframe
+    sandbox="allow-scripts allow-same-origin allow-forms"
+    allowtransparency="true"
+    style="background: inherit"
+    (load)="isLoading = false"
+    [class.d-none]="isLoading"
+    #filterIframe
+    class="iframeDiv e2e-iframe-trusted-src"
+    [src]="activeURL"
+    allow="camera *;microphone *;"
+    scrolling="no"
+    referrerpolicy="no-referrer"
+></iframe>
                 <!--   <iframe *ngIf="!isMeasles" class="iframeDiv e2e-iframe-trusted-src" [src]="mumpsSafeURL" allow="camera *;microphone *" scrolling="no"></iframe> -->
             </div>
             <div class="takenImageDiv" *ngIf="isPictureTaken">
