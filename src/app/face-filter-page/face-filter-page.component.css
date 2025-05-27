@@ -276,17 +276,20 @@
 }
 
 /* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
-
 .moreInfoDiv {
-  width: 4em;
-  height: 4em;
+  target: svg;
+  width: 3.5em;
+  height: 3.5em;
   padding: 4em;
   z-index: 1000;
   color: #0134ff;
-  display: flex;
-  position: fixed;
-  right: 0;
-  bottom: 0;
+  
+  align-items: center;
+  justify-content: flex-end; /* Align content to the right */
+  
+  right: 0; /* Position at right edge */
+  top: 50%;
+  transform: translateY(-25%); /* Center vertically */
 }
 
 .moreInfoDivWrapper {
